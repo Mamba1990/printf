@@ -1,62 +1,62 @@
-#include "main.h"
-void printBuffer(char _buffer[], int *_buff_ind);
-/**
- * _printf - function
- * @format: forma to print
- * Return: chars.
- */
+#include <stdio.h>
+#include <stdarg.h>
+
+
 int _printf(const char *format, ...)
 {
-        int j, _printed = 0, _printed_chars = 0;
-        int _flags, _width, _precision, _size, _buff_ind = 0;
-        va_list _list;
-        char _buffer[BUFF_S];
+    va_list argms;
+    int length = 0;  /* Track the number of characters printed*/
 
-        if (format == NULL)
-                return (-1);
-        va_start(_list, format);
-        j = 0;
-        while (format && format[j] != '\0')
+    va_start(argms, format);
+
+    while (*format != '\0')
+    {
+        if (*format == '%')
         {
-                if (format[j] != '%')
+            format++;  /* Move past the '%' */
+
+            /* Handle the conversion specifiers */
+            switch (*format)
+            {
+                case 'c':
                 {
-                        _buffer[_buff_ind++] = format[j];
-                        if (_buff_ind == BUFF_S)
-                               printBuffer(_buffer, &_buff_ind);
-                        _printed_chars++;
+                    int _char = va_arg(argms, int);
+                    putchar(_char);
+                    length++;
+		    break;
                 }
-                else
+                case 's':
                 {
-                        printBuffer(_buffer, &_buff_ind);
-                        _flags = getFlags(format, &j);
-                        _width = getWidth(format, &j, _list);
-                        _precision = getPrecision(format, &j, _list);
-                        _size = getSize(format, &j);
-                        ++j;
-                        _printed = handlePrint(format, &j, _list, _buffer,
-                                        _flags, _width, _precision, _size);
-                        if (_printed == -1)
-                                return (-1);
-                        _printed_chars += _printed;
+                    const char *ss = va_arg(argms, const char *);
+                    while (*ss != '\0')
+                    {
+                        putchar(*ss);
+                        ss++;
+                        length++;
+                    }
+                    break;
                 }
-                j++;
+                case '%':
+                {
+                    putchar('%');
+                    length++;
+                    break;
+                }
+                default:
+                    break;
+            }
         }
-        printBuffer(_buffer, &_buff_ind);
-        va_end(_list);
-
-        return (_printed_chars);
-}
-/**
- * printBuffer - Prints the content of the existent buffer
- * @_buffer: Array of chars
- * @_buff_index: the length.
- */
-
-void printBuffer(char _buffer[], int *_buff_ind)
-{
-        if (*_buff_ind > 0)
+        else
         {
-                write(1, &_buffer[0], *_buff_ind);
-        *_buff_ind = 0;
+            putchar(*format);
+            length++;
+                                                                                           
         }
+
+        format++;
+    }
+
+    va_end(argms);
+
+    return (0);
 }
