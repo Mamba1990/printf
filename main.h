@@ -4,11 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-<<<<<<< HEAD
-
-=======
 /* _printf prototype */
->>>>>>> refs/remotes/origin/master
 
 int _printf(const char *format, ...);
 
