@@ -2,7 +2,7 @@
 #include <stdarg.h>
 /**
  * _printf - function
- * @format: forma to print
+ * @format: form to print
  * Return: chars.
  */
 int _printf(const char *format, ...)
