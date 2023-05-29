@@ -11,13 +11,21 @@ int _printf(const char *format, ...)
 	int length = 0;
 
 	va_start(argms, format);
-	while (*format != '\0')
+	while (format[length])
 	{
 		if (*format == '%')
 		{
 			format++;
 			switch (*format)
 			{
+				case 'd':
+				case 'i':
+				{
+					int number = va_arg(argms, int);
+					length += printf("%d", number);
+					break;
+				}
+
 				case 'c':
 				{
 					int _char = va_arg(argms, int);
