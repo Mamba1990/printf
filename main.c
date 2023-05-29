@@ -9,9 +9,8 @@
  */
 int main(void)
 {
-	int length = _printf("String:[%s]\nCharacter:[%c]\n", "I am a string !", 'H');
+	int length = _printf("String:[%s] character:[%c]\n", "I am a string ", 'H');
+
 	printf("Number of characters printed: %d\n", length);
-        
-	
 return (0);
 }
