@@ -18,13 +18,6 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-				case 'd':
-				case 'i':
-				{
-					int number = va_arg(argms, int);
-					length += printf("%d", number);
-					break;
-				}
 
 				case 'c':
 				{
