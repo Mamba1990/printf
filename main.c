@@ -9,19 +9,8 @@
  */
 int main(void)
 {
-	int len;
-	int len2;
+	int length = _printf("String:[%s] character:[%c]\n", "I am a string ", 'A');
 
-	len = _printf("Let's try to printf a simple sentence.\n");
-	printf("Number of characters printed: %d\n", len);
-	len2 = printf("Let's try to printf a simple sentence.\n");
-	printf("Number of characters printed: %d\n", len2);
-	len = _printf("Character:[%c]\n", 'H');
-	printf("Number of characters printed: %d\n", len);
-	len2 = printf("Character:[%c]\n", 'H');
-	len = _printf("Percent:[%%]\n");
-	printf("Number of characters printed: %d\n", len);
-	len2 = printf("Percent:[%%]\n");
-	printf("Number of characters printed: %d\n", len2);
+	printf("Number of characters printed: %d\n", length);
 return (0);
 }
