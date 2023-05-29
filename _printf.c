@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * _printf - function
+ * _printf - function.
  * @format: form to print.
  * Return: chars.
  */
