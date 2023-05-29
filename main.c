@@ -16,9 +16,9 @@ int main(void)
 	printf("Number of characters printed: %d\n", len);
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	printf("Number of characters printed: %d\n", len2);
-	len = _printf("Character:[%c]\n", 'M');
+	len = _printf("Character:[%c]\n", 'H');
 	printf("Number of characters printed: %d\n", len);
-	printf("Character:[%c]\n", 'M');
+	printf("Character:[%c]\n", 'H');
 	len = _printf("String:[%s]\n", "I am a string !");
 	printf("Number of characters printed: %d\n", len);
 	printf("String:[%s]\n", "I am a string !");
