@@ -9,8 +9,22 @@
  */
 int main(void)
 {
-	int length = _printf("String:[%s] character:[%c]\n", "I am a string ", 'A');
+	int len;
+	int len2;
 
-	printf("Number of characters printed: %d\n", length);
+	len = _printf("Let's try to printf a simple sentence.\n");
+	printf("Number of characters printed: %d\n", len);
+	len2 = printf("Let's try to printf a simple sentence.\n");
+	printf("Number of characters printed: %d\n", len2);
+	len = _printf("Character:[%c]\n", 'M');
+	printf("Number of characters printed: %d\n", len);
+	printf("Character:[%c]\n", 'M');
+	len = _printf("String:[%s]\n", "I am a string !");
+	printf("Number of characters printed: %d\n", len);
+	printf("String:[%s]\n", "I am a string !");
+	len = _printf("Percent:[%%]\n");
+	printf("Number of characters printed: %d\n", len);
+	len2 = printf("Percent:[%%]\n");
+	printf("Number of characters printed: %d\n", len2);
 return (0);
 }
