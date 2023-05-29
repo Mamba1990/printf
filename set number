@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 
 	va_start(argms, format);
 	while (*format)
+
 	{
 		if (*format == '%')
 		{
@@ -32,11 +33,13 @@ int _printf(const char *format, ...)
 
 					length += printf("%s", ss);
 					break;
-					case '%':
+				}
+				case '%':
+				{
 					putchar('%');
 					length++;
 					break;
-				}				
+				}
 				default:
 					break;
 			}
@@ -47,7 +50,7 @@ int _printf(const char *format, ...)
 			length++;
 		}
 		format++;
-	}	
+	}
 va_end(argms);
 return (length);
 }
