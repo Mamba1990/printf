@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-
 				case 'c':
 				{
 					int _char = va_arg(argms, int);
